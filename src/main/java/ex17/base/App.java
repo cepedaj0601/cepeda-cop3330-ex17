@@ -43,6 +43,37 @@ public class App {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        
+        System.out.println("What is your weight (in pounds)?");
+        int weight = in.nextInt();
+
+        System.out.println("What is you gender (male or female)?");
+        String gender = in.next();
+
+        System.out.println("What is the total amount of alcohol you've consumed (in ounces)?");
+        int alcConsumed = in.nextInt();
+
+        System.out.println("How long has it been since your last drink (in hours)?");
+        int time = in.nextInt();
+
+        double bacLimit = 0.08;
+        double bacM = (alcConsumed * 5.14 / weight * 0.75) - 0.015 * time;
+        double bacF = (alcConsumed * 5.14 / weight * 0.66) - 0.015 * time;
+
+        if(gender.equals("male")){
+            if (bacM >= bacLimit) {
+                System.out.println("It is not legal for you to drive.");
+            }
+            else{
+                System.out.println("It is legal for you to drive.");
+            }
+        }
+        if(gender.equals("female")){
+            if (bacF >= bacLimit) {
+                System.out.println("It is not legal for you to drive.");
+            }
+            else{
+                System.out.println("It is legal for you to drive.");
+            }
+        }
     }
 }
